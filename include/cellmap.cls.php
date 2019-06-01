@@ -433,6 +433,12 @@ class Cellmap {
     
     $node = $frame->get_node();
     
+    // Eliminate "undefined method DOMText::getAttribute()" error
+    // (not sure of consequences)
+    if (get_class($node) != "DOMElement") {
+      return;
+    }
+
     // Determine where this cell is going
     $colspan = $node->getAttribute("colspan");
     $rowspan = $node->getAttribute("rowspan");
