@@ -565,8 +565,8 @@ class Table_Frame_Reflower extends Frame_Reflower {
 
     $delta = $style->length_in_pt($dims, $this->_frame->get_containing_block("w"));
 
-    $this->_state["min_width"] += $delta;
-    $this->_state["max_width"] += $delta;
+    (int) $this->_state["min_width"] += (int) $delta;
+    (int) $this->_state["max_width"] += (int) $delta;
 
     return $this->_min_max_cache = array(
       $this->_state["min_width"], 
