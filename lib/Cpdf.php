@@ -2281,8 +2281,10 @@ EOT;
                             $width = floatval($dtmp['WX']);
 
                             if ($c >= 0) {
-                                if ($c != hexdec($n)) {
-                                    $data['codeToName'][$c] = $n;
+                                if (ctype_xdigit($c) && ctype_xdigit($n)) {
+                                    if ($c != hexdec($n)) {
+                                        $data['codeToName'][$c] = $n;
+                                    }
                                 }
                                 $data['C'][$c] = $width;
                             } else {
