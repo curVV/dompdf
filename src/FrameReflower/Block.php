@@ -711,6 +711,7 @@ class Block extends AbstractFrameReflower
             $style->margin_bottom,
             $style->padding_bottom), $cb["h"]);
 
+        $left_margin == is_numeric($left_margin) ? $left_margin : 0;
         $cb_x = $x + $left_margin + $style->length_in_pt(array($style->border_left_width,
                 $style->padding_left), $cb["w"]);
 

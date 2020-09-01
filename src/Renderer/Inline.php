@@ -112,6 +112,8 @@ class Inline extends AbstractRenderer
             if (is_null($w))
                 $w = $child_w;
             else
+                if (!is_numeric($w)) $w=0;
+                if (!is_numeric($child_w)) $child_w=0;
                 $w += $child_w;
 
             $h = max($h, $child_h);
@@ -141,6 +143,8 @@ class Inline extends AbstractRenderer
             $this->_background_image($url, $x + $widths[3], $y + $widths[0], $w, $h, $style);
 
         // Add the border widths
+        if (!is_int($w)) $w=0;
+        if (!is_int($h)) $h=0;
         $w += $widths[1] + $widths[3];
         $h += $widths[0] + $widths[2];
 

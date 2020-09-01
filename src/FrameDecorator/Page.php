@@ -491,7 +491,11 @@ class Page extends AbstractFrameDecorator
             return false;
 
         // Determine the frame's maximum y value
-        $max_y = $frame->get_position("y") + $margin_height;
+        if (is_numeric($margin_height)){
+            $max_y = $frame->get_position("y") + $margin_height;
+        }else {
+            $max_y = 0;
+        }
 
         // If a split is to occur here, then the bottom margins & paddings of all
         // parents of $frame must fit on the page as well:
