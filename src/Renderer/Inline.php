@@ -109,13 +109,14 @@ class Inline extends AbstractRenderer
                 continue;
             }
 
-            if (is_null($w))
+            if (is_null($w)){
                 $w = $child_w;
-            else
+            }
+            else{
                 if (!is_numeric($w)) $w=0;
                 if (!is_numeric($child_w)) $child_w=0;
                 $w += $child_w;
-
+            }
             $h = max($h, $child_h);
 
             if ($this->_dompdf->get_option("debugLayout") && $this->_dompdf->get_option("debugLayoutInline")) {
